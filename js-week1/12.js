@@ -11,7 +11,7 @@ if (age >= 18) {
         console.log("성인 남성입니다.")
     }
 } else {
-    // console.log("미성년입니다.")
+    console.log("미성년입니다.")
     if (gender === "여성") {
         console.log("미성년 여성입니다.")
     } else {

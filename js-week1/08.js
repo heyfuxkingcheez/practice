@@ -1,4 +1,5 @@
-// 스코프, 전액변수
+// 스코프
+// 전역 스코프(global scpoe)
 let x = 10;
 
 function printX() {
@@ -6,4 +7,6 @@ function printX() {
 }
 
 console.log(x);
-printX();
+printX(); // 10
+
+//

@@ -1,80 +1,74 @@
-// 배열
+// 객체
+// key - value pair
+// 하나의 변수에 여러개의 값을 넣을 수 있다.
 
-// 1. 생성
-// 1-1, 기본 생성
-// let fruits = ["사과", "바나나", "오렌지"];
+// 1. 객체 생성 방법
+// 1-1. 기본적인 객체 생성 방법
+let person = {
+    name: "홍길동",
+    age: 30,
+    gender: "남자",
+};
 
+// 1-2. 생성자 함수를 이용한 객체 생성 방법
+function Person(name, age, gender) {
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+}
 
-// 1-2. 크기 지정
-// let number = new Array(5);
+// let person1 = new Person("홍길동", 30, "남자");
+// let person2 = new Person("홍길순", 28, "여자");
 
-// console.log(fruits.length);
-// console.log(number.length);
+// 2. 접근하는 방법
+console.log("1.",person.name) // 홍길동
+console.log("2.",person.age) // 30
+console.log("3.",person.gender) //남성
 
-// 2. 배열 요소 접근
-// console.log(fruits[1])
-
-
-// 3. 배열 메소드
-// 3-1. push
-// let fruits = ["사과", "바나나"];
-// console.log("1 =>", fruits); // 사과, 나나
-
-// fruits.push("오렌지")
-// console.log("2 =>", fruits); // 사과, 바나나, 오렌지
-
-// // 3-2. pop 메소드 (뒤에서 부터 없어짐)
-// fruits.pop();
-// console.log("3 =>", fruits); // 사과, 바나나
-
-// 3-3. shift (앞에서 부터 없어짐)
-let fruits = ["사과", "바나나", "키위"]
-// console.log("1 =>", fruits);
-// fruits.shift();
-// console.log("2 =>", fruits);
-
-// // 3-4. unshift (맨 앞에 어떤 값을 대신 들어감)
-// fruits.unshift("포도");
-// console.log("3 =>", fruits);
-
-// // 3-5. splice
-// fruits.splice(1, 1, "포도"); // index(1번째) 부터 몇개(1)지우고, (이거)넣어줘
-// console.log(fruits) // ["사과",. "포도", "키위"]
-
-// 3-6. slice
-let slicedFruits = fruits.slice(0, 2); //index(1번째)부터 index(2번째전까지 잘라
-console.log(slicedFruits); // ["사과". "바나나"]
-
-//  (1) forEach, map, filter, find
-let numbers = [3, 1, 2, 5, 4];
-
-// 매개변수 자리에 함수를 넣는 것 : 콜백 함수
-// numbers.forEach(function(item){
-//     console.log("item입니다 =>" + item); //item입니다 =>3
-//                                         // item입니다 =>1
-//                                         // item입니다 =>2
-//                                         // item입니다 =>5
-//                                         // item입니다 =>4
-// });
-
-// (2) map //return문을 꼭 가져야 함.
-// map 역할 : 기존에 있었던 배열을 가공해서, 새로운 배열을 생산해 let냄
-// 항상 원본 배열의 길이만큼이 무조건, return 된다.
-// let newNumbers = numbers.map(function(item){
-//     return item * 2;
-// })
-// console.log(newNumbers) // [6, 2, 4, 10, 8]
+// 객체 메소드(객체가 가진 여러가지 기능 :Object.~~)
+// 3-1. Objecct.key() : key를 가져오는 메소드.
 
 
-// filter 조건에 해당하는 것만 return
-let filteredNumbers = numbers.filter(function(item){
-    return item > 3
-});
-console.log("=>", filteredNumbers);
+let keys = Object.keys(person);
+// console.log("keys =>", keys); // ["name", "age", "gender"]
 
-// find // 찾은 첫번째 꺼만 return함.
-// let numbers= [4, 1, 5, 3, 5];
-// let result = numbers.find(function(item){
-//     return item > 3
-// })
-// console.log(result)
+// 3-2. Object.value() : value를 가져오는 메소드.
+let values = Object.values(person)
+// console.log("values =>", values); // ["홍길동", 30, "남자"]
+
+// 3-3. entrries
+// key의 value를 묶어 배열로 만든 배열! (2차원 배열)
+let entries = Object.entries(person);
+console.log("entries =>", entries); // [ [ 'name', '홍길동' ], [ 'age', 30 ], [ 'gender', '남자' ] ]
+// 3-4. assign
+// 객체 복사
+let newPerson = Object.assign({}, person, { age: 35 });
+
+console.log("newPerson ->", newPerson); // { name: '홍길동', age: 35, gender: '남자' }
+
+// 3-5. 객체 비교
+    let 기욱 = {
+        name: "정기욱",
+        age: 27,
+        gender: "male"
+    };
+    let 기욱2 = {
+        name: "정기욱",
+        age: 27,
+        gneder: "male"
+    };
+console.log("answer =>", 기욱 === 기욱2);// false
+console.log("answer =>", JSON.stringify(기욱) === JSON.stringify(기욱2)) // true
+
+// 3-6. 객체 병합
+let person1 = {
+    name: "홍길동",
+    age: 30,
+};
+let person2 = {
+    gender: "남자",
+};
+
+// ... : spread operator (전개 연산자)
+let perfectMan = {...person1, ...person2};
+console.log("answer=>",perfectMan)

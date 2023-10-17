@@ -20,9 +20,9 @@ let add2 = function (x, y) {
 // 함수형() => add(입력값)
 // console.log(add(2, 3));
 
-// let functionResult = add (3, 4);
-// console.log(functionResult); 
+let functionResult = add (3, 4);
+console.log(functionResult);  // 7
 
 // add2를 가지고 10과 20을 더한 값을 출력해보세요!
 let functionResult2 = add2(10, 20);
-console.log(functionResult2);
+console.log(functionResult2); // 30

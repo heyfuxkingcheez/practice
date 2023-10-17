@@ -32,5 +32,5 @@ if (false) {
 
 if (1) {
     // main logic
-    console.log("woogi")
+    console.log("woogi") // "woogi"
 }

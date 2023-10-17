@@ -1,87 +1,80 @@
-// for, while => ~동안 : 반복문
-// for (초기값, 조건식, 증감식){
-// }
+// 배열
 
-// i라는 변수는 0부터 시작할거야
-// i라는 변수가 10에 도달할 때 까지 계속할거야
-// i라는 변수는 한 사이클이 돌고 나면 1을 더할거야.
-// for(let i = 0; i < 10; i++) {
-//     console.log("for문 돌아가고 있음 =>" + i);
-// }
+// 1. 생성
+// 1-1, 기본 생성
+let wook = ["개발", "자전거", "주식"];
 
-// 배열과 for문은 짝꿍이다.
-// const arr = ["one","two","three","four","five"];
-// for (let i = 0; i < arr.length; i++) {
-//     console.log(i)
-//     console.log(arr[i]); // one, two, three, four, five
 
-// }
+// 1-2. 크기 지정
+let number = new Array(5);
 
-// ex : 0부터 10까지의 수 중에서 2의 배수만 console.log로 출력
-// let number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-// let arr = [];
+console.log(wook.length);
+console.log(number.length);
 
-// for (let i = 0; i < number.length; i++) {
-//     if (i >= 2) {
-//         if (i % 2 === 0) {
-//             console.log(i + "는 2의 배수입니다.")
-//         }
-//     }
-// }
+// 2. 배열 요소 접근
+console.log(wook[1])
 
-// for ~ in문
-// 객체의 속성을 출력하는 문법
-// let person = {
-//     name: "john",
-//     age: 30,
-//     gender: "male",
 
-// };
+// 3. 배열 메소드
+// 3-1. push
+let fruits1 = ["사과", "바나나"];
+console.log("1 =>", fruits1); // 사과, 나나
 
-// for (let key in person) {
-//     console.log(key + ":" + person[key]);
-// }
+fruits1.push("오렌지")
+console.log("2 =>", fruits1); // 사과, 바나나, 오렌지
 
-// while 
-// let i = 0;
+// // 3-2. [pop] 메소드 (뒤에서 부터 없어짐)
+fruits1.pop();
+console.log("3 =>", fruits1); // 사과, 바나나
 
-// while (i < 10) {
-//     console.log(i);
-//     i++;    
-// }
+// 3-3. [shift] (앞에서 부터 없어짐)
+let fruits2 = ["사과", "바나나", "키위"]
+console.log("1 =>", fruits2);
+fruits2.shift();
+console.log("2 =>", fruits2);
 
-// while문을 활용해서, 3초과 100미만의 숫자 중 5의 배수만 출력하는 예
-// let i = 4;
+// // 3-4. [unshift] (맨 앞에 어떤 값을 대신 들어감)
+fruits2.unshift("포도");
+console.log("3 =>", fruits2);
 
-// while (i < 100) {
-//     if (i % 5 == 0) {
-//         console.log(i + "는 5의 배수 입니다.")
-//     }
-//     i++;
-// }
+// // 3-5. splice
+fruits2.splice(2, 1, "포도"); // index(2)번째 부터 몇개(1)지우고, (이거)넣어줘
+console.log("splice->",fruits2) // ["사과",. "바나나", "포도"]
 
-// do ~ while
-// let i = 0;
+// 3-6. slice
+let slicedFruits = fruits2.slice(0, 2); // [앞 포함], [뒤 포함안함]
+console.log(slicedFruits); // ["사과". "바나나"]
 
-// do {
-//     console.log(i);
-//     i++
-// } while (i < 10);
+//  (1) forEach, map, filter, find
+let numbers = [3, 1, 2, 5, 4];
 
-// break continue문
-// for(let i = 0; i < 10; i++) {
-//     if (i == 6) {
-//         break;
-//     } console.log(i)
-// }
+// 매개변수 자리에 함수를 넣는 것 : [콜백 함수]
+numbers.forEach(function(item){
+    console.log("numbers =>" + item); //item입니다 =>3
+                                        // item입니다 =>1
+                                        // item입니다 =>2
+                                        // item입니다 =>5
+                                        // item입니다 =>4
+});
 
-// for (let i = 1; i <= 100; i++) {
-//     if (i % 2 === 1) {
-//         console.log(i)
-//     }
-// }
-let i = 2;
-while (i <= 100) {
-    console.log(i)
-    i += 2
-}
+// (2) map //return문을 꼭 가져야 함.
+// map 역할 : 기존에 있었던 배열을 가공해서, 새로운 배열을 생산해 let냄
+// 항상 원본 배열의 길이만큼이 무조건, return 된다.
+let newNumbers = numbers.map(function(item){
+    return item * 2;
+})
+console.log(newNumbers) // [6, 2, 4, 10, 8]
+
+
+// filter 조건에 해당하는 것만 return
+let filteredNumbers = numbers.filter(function(item){
+    return item > 3
+});
+console.log("=>", filteredNumbers); // 5 4
+
+// find // 찾은 첫번째 꺼만 return함.
+let numbers1= [4, 1, 5, 3, 5];
+let result = numbers1.find(function(item){
+    return item > 3
+})
+console.log(result) // 4
