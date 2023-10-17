@@ -78,3 +78,33 @@ let result = numbers1.find(function(item){
     return item > 3
 })
 console.log(result) // 4
+
+// every() 메소드
+let numbers = [2, 4, 6, 8, 10];
+
+let isAllEvenNumbers = numbers.every(function(number) {
+    return number % 2 === 0;
+});
+
+console.log(isAllEvenNumbers); // true
+// 메소드를 사용하여 배열 numbers의 모든 요소가 짝수인지 확인합니다.
+// every() 메소드는 배열이 각 요소에 대해 콜백 함수를 실행하고
+// 그 결과가 true인 요소가 모든 요소인지 확인합니다.
+
+// sort() 메소드 => 배열의 요소를 정렬
+let numbers = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5];
+
+numbers.sort(function(a, b) {
+    return a - b;
+})
+
+console.log(numbers); // [1, 1, 2, 3, 3, 4, 5 ,5, 5, 6, 9]
+// 배열 numbers를 오름차순으로 정렬한다.
+
+// revers() 메소드
+let numbers = [1, 2, 3, 4, 5];
+
+numbers.reverse();
+
+console.log(numbers); // [5, 4, 3, 2, 1]
+// 배열 numbers의 순서를 뒤집는다.
