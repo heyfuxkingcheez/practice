@@ -46,10 +46,10 @@ let slicedFruits = fruits2.slice(0, 2); // [앞 포함], [뒤 포함안함]
 console.log(slicedFruits); // ["사과". "바나나"]
 
 //  (1) forEach, map, filter, find
-let numbers = [3, 1, 2, 5, 4];
+let numbers1 = [3, 1, 2, 5, 4];
 
 // 매개변수 자리에 함수를 넣는 것 : [콜백 함수]
-numbers.forEach(function(item){
+numbers1.forEach(function(item){
     console.log("numbers =>" + item); //item입니다 =>3
                                         // item입니다 =>1
                                         // item입니다 =>2
@@ -73,16 +73,16 @@ let filteredNumbers = numbers.filter(function(item){
 console.log("=>", filteredNumbers); // 5 4
 
 // find // 찾은 첫번째 꺼만 return함.
-let numbers1= [4, 1, 5, 3, 5];
-let result = numbers1.find(function(item){
+let numbers2= [4, 1, 5, 3, 5];
+let result = numbers2.find(function(item){
     return item > 3
 })
 console.log(result) // 4
 
 // every() 메소드
-let numbers = [2, 4, 6, 8, 10];
+let numbers3 = [2, 4, 6, 8, 10];
 
-let isAllEvenNumbers = numbers.every(function(number) {
+let isAllEvenNumbers = numbers3.every(function(number) {
     return number % 2 === 0;
 });
 
@@ -92,9 +92,9 @@ console.log(isAllEvenNumbers); // true
 // 그 결과가 true인 요소가 모든 요소인지 확인합니다.
 
 // sort() 메소드 => 배열의 요소를 정렬
-let numbers = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5];
+let numbers4 = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5];
 
-numbers.sort(function(a, b) {
+numbers4.sort(function(a, b) {
     return a - b;
 })
 
