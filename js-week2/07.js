@@ -19,8 +19,8 @@ const multiplyByThree = multiplyBy(3);
 //     return x * 3;
 // };
 
-console.log(multiplyByTwo(5));
-console.log(multiplyByThree(10));
+console.log(multiplyByTwo(5)); // 10
+console.log(multiplyByThree(10)); // 30
 
-const result = add(multiplyByTwo(5), multiplyByThree(10));
+const result = add(multiplyByTwo(5), multiplyByThree(10)); // 40
 console.log(`final =>${result}`)

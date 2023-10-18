@@ -34,3 +34,4 @@ if (1) {
     // main logic
     console.log("woogi") // "woogi"
 }
+

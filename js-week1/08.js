@@ -9,4 +9,3 @@ function printX() {
 console.log(x);
 printX(); // 10
 
-//
